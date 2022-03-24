@@ -1,0 +1,1 @@
+gcloud beta run deploy alfred-tutorial-1 --source . --allow-unauthenticated --project=snappyapps-1141

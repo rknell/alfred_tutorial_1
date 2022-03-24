@@ -1,4 +1,5 @@
 import 'package:alfred/alfred.dart';
+import 'package:alfred_tutorial_1/classes/user.dart';
 import 'package:alfred_tutorial_1/services/services.dart';
 import 'package:corsac_jwt/corsac_jwt.dart';
 import 'package:dbcrypt/dbcrypt.dart';
@@ -48,8 +49,10 @@ class UsersRoute {
     }
   }
 
-  static createAccount(HttpRequest req, HttpResponse res) {
-    //create a user
-    //set the password
+  static createAccount(HttpRequest req, HttpResponse res) async {
+    final body = await req.bodyAsJsonMap;
+    final newUser = User.fromJson(body)..setPassword(body['password']);
+    await newUser.save();
+    return newUser;
   }
 }

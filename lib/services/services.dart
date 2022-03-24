@@ -7,6 +7,8 @@ const _JWTSECRET = 'QDSFQ%\$WBTVQWEVTQ\$ TvqweRQWRQWEFQWCFQW RQ';
 class Services {
   UsersService users = UsersService();
   final jwtSigner = JWTHmacSha256Signer(_JWTSECRET);
+
+  Services();
 }
 
 Services get services => GetIt.instance.get<Services>();
